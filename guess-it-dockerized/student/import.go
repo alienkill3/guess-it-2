@@ -24,6 +24,10 @@ func readInput() error {
 
 		numbers = append(numbers, float64(number))
 
+		if len(numbers) > 20 {
+			numbers = numbers[1:]
+		}
+
 		prediction := float64(number)
 
 		if len(numbers) >= 2 {
@@ -34,9 +38,9 @@ func readInput() error {
 			prediction = a*nextX + b
 
 		}
-		lower := int(math.Floor(prediction - 10))
+		lower := int(math.Floor(prediction - 60))
 
-		upper := int(math.Ceil(prediction + 10))
+		upper := int(math.Ceil(prediction + 60))
 
 		fmt.Println(lower, upper)
 
